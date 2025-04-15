@@ -1,4 +1,4 @@
-class Modules::ManufacturingCompanies
+module ManufacturingCompanies
   attr_reader :company_name
 
   protected

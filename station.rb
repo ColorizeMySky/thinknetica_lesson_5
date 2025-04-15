@@ -1,5 +1,7 @@
+require_relative 'modules/instance_counter'
+
 class Station
-  include Helpers::InstanceCounter
+  include InstanceCounter
 
   attr_reader :title, :trains
 

@@ -4,10 +4,10 @@ require_relative 'cargo_train'
 require_relative 'station'
 require_relative 'route'
 require_relative 'wagon'
-require_relative 'menu_config'
+require_relative 'modules/menu'
 
 class Main
-  MENU = MENU_CONFIG
+  include Menu
 
   def initialize
     @stations = []
@@ -25,20 +25,6 @@ class Main
   end
 
   private
-
-  def show_menu
-    MENU.each { |item| puts "#{item[:id]}. #{item[:title]}" }
-  end
-
-  def get_choice
-    puts "Выберите действие: "
-    gets.chomp.to_i
-  end
-
-  def take_action(choice)
-    item = MENU.find { |menu_item| menu_item[:id] == choice }
-    send(item[:action]) if item
-  end
 
   def exit_interface
     exit

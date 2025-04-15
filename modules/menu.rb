@@ -1,4 +1,5 @@
-MENU_CONFIG = [
+module Menu
+  MENU_CONFIG = [
   {id: 1, title: 'Создать станцию', action: :create_station},
   {id: 2, title: 'Создать поезд', action: :create_train},
   {id: 3, title: 'Создать маршрут', action: :create_route},
@@ -10,4 +11,20 @@ MENU_CONFIG = [
   {id: 9, title: 'Переместить поезд по маршруту', action: :move_train},
   {id: 10, title: 'Просмотреть список станций и поездов', action: :show_info},
   {id: 0, title: 'Выход', action: :exit_interface}
-]
+].freeze
+
+  def show_menu
+    MENU_CONFIG.each { |item| puts "#{item[:id]}. #{item[:title]}" }
+  end
+
+  def get_choice
+    puts "Выберите действие: "
+    gets.chomp.to_i
+  end
+
+  def take_action(choice)
+    item = MENU_CONFIG.find { |menu_item| menu_item[:id] == choice }
+    send(item[:action]) if item
+  end
+
+end

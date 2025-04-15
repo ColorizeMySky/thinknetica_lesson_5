@@ -1,5 +1,7 @@
+require_relative 'modules/instance_counter'
+
 class Route
-  include Helpers::InstanceCounter
+  include InstanceCounter
 
   attr_reader :stations
 

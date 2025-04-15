@@ -1,6 +1,9 @@
+require_relative 'modules/instance_counter'
+require_relative 'modules/manufacturing_companies'
+
 class Train
-  include Helpers::InstanceCounter
-  include Modules::ManufacturingCompanies
+  include InstanceCounter
+  include ManufacturingCompanies
 
   attr_reader :number,  :wagons, :type, :route,:current_station_index, :speed
 

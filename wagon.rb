@@ -1,5 +1,7 @@
+require_relative 'modules/manufacturing_companies'
+
 class Wagon
-  include Modules::ManufacturingCompanies
+  include ManufacturingCompanies
 
   attr_reader :type
 
